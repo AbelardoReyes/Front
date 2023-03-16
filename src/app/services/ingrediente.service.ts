@@ -14,8 +14,8 @@ import { HttpHeaders } from '@angular/common/http';
 export class IngredienteService {
   APIURL = environment.URL_API;
   private _refresh$ = new Subject<void>();
-  private obtenerIngredientes = this.APIURL + '/ingrediente/info';
-  private crearIngrediente = this.APIURL + '/ingrediente/';
+  private obtenerIngredientes = '/ingrediente/info';
+  private crearIngrediente = '/ingrediente/';
 
   constructor(private http: HttpClient) { }
   get_refresh$() {
