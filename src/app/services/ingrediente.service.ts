@@ -24,16 +24,11 @@ export class IngredienteService {
 
 
 
-  getIngrediente(): Observable<Ingrediente[]> {
+  getIngredientes(): Observable<Ingrediente[]> {
     return this.http.get<Ingrediente[]>(this.obtenerIngredientes).pipe(retry(3), catchError(this.handleError))
   }
 
-  addIngrediente(ingrediente: Ingrediente): Observable<Ingrediente> {
-    return this.http.post<Ingrediente>(this.crearIngrediente, ingrediente).pipe(catchError(this.handleError)).pipe(tap(() => {
-      this._refresh$.next();
-    }
-    ));
-  }
+
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 400) {
