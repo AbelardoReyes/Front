@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { IngredienteComponent } from './components/ingrediente/ingrediente.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { IngredienteFormComponent } from './components/ingrediente-form/ingrediente-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     IngredienteComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    IngredienteFormComponent
   ],
   imports: [
     BrowserModule,

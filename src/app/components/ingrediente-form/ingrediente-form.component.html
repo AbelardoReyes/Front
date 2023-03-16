@@ -1,0 +1,101 @@
+<div class="formGroup">
+  <form [formGroup]="form" (ngSubmit)="OnSubmit(form.value)">
+    <h1 class="text-3xl text-center">Crear Nuevo Chef</h1>
+    <div id="input" class="flex flex-col w-full my-5">
+      <label
+        for="nombre"
+        class="block mb text-sm font-medium text-gray-900 dark:text-white"
+        >Nombre</label
+      >
+      <input
+        type="text"
+        formControlName="nombre"
+        id="nombre"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Nuez"
+        required
+      />
+      <p
+        *ngIf="form.get('nombre')!.invalid && form.get('nombre')!.touched"
+        class="text-red-500 text-xs italic"
+      >
+        El nombre es obligatorio
+      </p>
+    </div>
+    <div id="input" class="flex flex-col w-full my-5">
+
+      <label for="tipo" d class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Selecciona un tipo</label>
+      <select id="tipo" formControlName="tipo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option selected>Aceites</option>
+        <option value="Lacteos">Lacteos</option>
+        <option value="Cereales">Cereales</option>
+        <option value="Legumbres">Legumbres</option>
+        <option value="Setas/Hongos">Setas/Hongos</option>
+        <option value="Verduras">Verduras</option>
+        <option value="Carnes rojas">Carnes rojas</option>
+        <option value="Carmes blancas">Carnes blancas</option>
+
+      </select>
+
+      <p
+        *ngIf="form.get('tipo')!.invalid && form.get('tipo')!.touched"
+        class="text-red-500 text-xs italic"
+      >
+        EL tipo es obligatorio
+      </p>
+    </div>
+    <div id="input" class="flex flex-col w-full my-5">
+      <label
+        for="cantidad"
+        class="block mb text-sm font-medium text-gray-900 dark:text-white"
+        >Cantidad</label
+      >
+      <input
+        type="number"
+        formControlName="cantidad"
+        id="cantidad"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="24"
+        max="100"
+        min="1"
+        required
+      />
+      <p
+        *ngIf="form.get('cantidad')!.invalid && form.get('cantidad')!.touched"
+        class="text-red-500 text-xs italic"
+      >
+        La cantidad es obligatorio
+      </p>
+    </div>
+
+    <div id="button" class="flex flex-col w-full my-5">
+      <button
+      routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page"
+      *ngIf="!form.invalid"
+      type="submit"
+      class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+      data-modal-hide="agregrChef"
+      [disabled]="form.invalid"
+    >
+      Agregar Ingrediente
+    </button>
+    <button
+      *ngIf="form.invalid"
+      type="submit"
+      class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+      data-modal-hide="agregrChef"
+      [disabled]="form.invalid"
+    >
+      Completa los campos
+    </button>
+
+    </div>
+  </form>
+</div>
+
+<!-- component -->
+
+
+
+
+
